@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>weather app</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,9 +16,9 @@
         </div>
         <div class="weather-container">
             <!--grant location container-->
-            <div class="grant-location-container">
+            <div class="grant-location-container sub-container">
                 <img src="./assets/location.png" alt="location image" width="80" height="80" loading="lazy">
-                <p>grant location access</p>
+                <p>Grant location access</p>
                 <p>Allow access to get weather Information</p>
                 <button class="btn" data-grantAccess>Grant Access</button>
             </div>
@@ -32,13 +33,13 @@
             </form>
 
             <!--loading screen container-->
-            <div class="loading-container">
+            <div class="loading-container sub-container">
                 <img src="./assets/loading.gif" alt="" width="150" height="150">
                 <p>Loading</p>
             </div>
 
             <!--show weather info-->
-            <div class="user-info-container">
+            <div class="user-info-container sub-container">
                 <div class="name">
                     <p data-cityName></p>
                     <img data-countryIcon alt="">
