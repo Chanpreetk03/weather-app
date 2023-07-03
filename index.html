@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>weather app</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,9 +28,9 @@
 
             <!--search form container-->
             <form action="form-container" data-searchForm>
-                <input type="text" placeholder="Search for city" data-searchInput>
-                <button class="btn">
-                    <img src="./assets/search.png" alt="" width="80" height="80" loading="lazy">
+                <input type="text" placeholder="Search for city..." data-searchInput>
+                <button class="btn" type="submit">
+                    <img src="./assets/search.png" alt="" width="20" height="20" loading="lazy">
                     
                 </button>
             </form>
@@ -44,6 +47,7 @@
                     <p data-cityName></p>
                     <img data-countryIcon alt="">
                 </div>
+                
                 <p data-weatherDesc></p>
                 <img alt="" data-weatherIcon>
                 <p data-temp></p>

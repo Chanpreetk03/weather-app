@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Merriweather Sans' , sans-serif;
 }
 
 :root{
@@ -9,15 +10,6 @@
     --colorDark2:#3F72AF;
     --colorLight1:#DBE2EF;
     --colorLight2:#F9F7F7;
-}
-
-.tab.current-tab{
-    background-color: rgba(219,226,239,0.5);
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
 }
 
 .wrapper{
@@ -34,11 +26,11 @@ h1{
 }
 
 .tab-container{
+    width: 90%;
     max-width: 550px;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
-    width: 90%;
     margin-top: 4rem;
 }
 
@@ -48,11 +40,17 @@ h1{
     letter-spacing: 1.75px;
     padding: 5px 8px;
 }
+
+.tab.current-tab{
+    background-color: rgba(219,226,239,0.5);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
 .weather-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     margin-block:4rem ;
 }
 
@@ -114,7 +112,7 @@ h1{
     text-transform: uppercase;
 }
 .user-info-container{
-    /* display: none; */
+    display: none;
 }
 
 .user-info-container.active{
@@ -124,7 +122,7 @@ h1{
     display: flex;
     align-items: center;
     gap: 0 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .user-info-container p{
@@ -151,6 +149,7 @@ h1{
 }
 
 .parameter-container{
+    width: 90%;
     display: flex;
     gap: 10px 20px;
     justify-content: center;
@@ -170,7 +169,6 @@ h1{
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     padding: 1rem;
-    gap: 5px 0;
     align-items: center;
 }
 
@@ -190,7 +188,7 @@ h1{
 }
 
 .form-container{
-    /* display: none; */
+    display: none;
     width: 90%;
     max-width: 550px;
     margin: 0 auto;
@@ -224,13 +222,17 @@ h1{
     outline: 3px solid rgba(255, 255, 255, 0.7);
 }
 
-.form-container btn{
+.form-container .btn{
     padding: unset;
     width:40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    align-self: center;
-    
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    margin-bottom: 1px;
 }

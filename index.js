@@ -6,17 +6,16 @@ const grantAccessContainer = document.querySelector('.grant-location-container')
 const searchForm = document.querySelector('[data-searchForm]')
 const loadingScreen = document.querySelector('.loading-container')
 const userInfoContainer = document.querySelector('.user-info-container')
-const searchInput = document.querySelector('[data-searchInput]')
 
 let oldTab = userTab
-const API_KEY = '3dad4de2d6e80ec82f340b90ec9f85f9'
-currentTab.classList.add('current-tab')
-
+const API_KEY = "3dad4de2d6e80ec82f340b90ec9f85f9";
+oldTab.classList.add('current-tab')
+getfromSessionStorage();
 //swtich tab function
 function switchTab(newTab) {
 	if (newTab != oldTab) {
 		oldTab.classList.remove('current-tab')
-		oldTab = clickedTab
+		oldTab = newTab
 		oldTab.classList.add('current-tab')
 		if (!searchForm.classList.contains('active')) {
 			userInfoContainer.classList.remove('active')
@@ -83,10 +82,10 @@ function renderWeatherInfo(weatherInfo) {
 
 	//fill the values
 	cityName.innerText = weatherInfo?.name
-	countryIcon.src = `https://flagcdn/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`
+	countryIcon.src = `https://flagcdn.com/144x108/${weatherInfo?.sys?.country.toLowerCase()}.png`
 	desc.innerText = weatherInfo?.weather?.[0]?.description
-	weatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`
-	temp.innerText = `${weatherInfo?.main.temp} °C`
+	weatherIcon.src = `http://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`
+	temp.innerText = `${weatherInfo?.main?.temp} °C`
 	windspeed.innerText = `${weatherInfo?.wind?.speed} m/s`
 	humidity.innerText = `${weatherInfo?.main?.humidity} %`
 	cloudiness.innerText = `${weatherInfo?.clouds?.all} %`
@@ -108,13 +107,15 @@ function showPosition(position) {
 		lat: position.coords.latitude,
 		lon: position.coords.longitude,
 	}
-	sessionStorage.setItem(user - coordinates, JSON.stringify(userCoordinates))
+	sessionStorage.setItem('user-coordinates', JSON.stringify(userCoordinates))
 	fetchUserWeatherInfo(userCoordinates)
 }
 
+const searchInput = document.querySelector('[data-searchInput]')
+
 searchForm.addEventListener('submit', (e) => {
 	e.preventDefault()
-	let cityName = searchInput.ariaValueMax();
+	let cityName = searchInput.value();
 	if (cityName === '') {
 		return
 	} else {
@@ -129,7 +130,7 @@ async function fetchSearchWeatherInfo(city){
 
     try {
         const response=await fetch(
-            `https://api.openweathermap.org/data/2.5/weather?q${city}&appid=${API_KEY}&units=metric`
+            `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
         );
         const data=await response.json();
         loadingScreen.classList.remove("active");
